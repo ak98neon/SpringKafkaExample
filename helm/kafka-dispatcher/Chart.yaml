@@ -1,0 +1,11 @@
+apiVersion: v1
+appVersion: 0.0.1-SNAPSHOT
+description: This is default description for your kafka-dispatcher
+engine: gotpl
+home: https://orahub.oraclecorp.com/appdev-cloud-ofsc/kafka-dispatcher
+keywords:
+  - kafka-dispatcher
+name: kafka-dispatcher
+sources:
+  - https://orahub.oraclecorp.com/appdev-cloud-ofsc/kafka-dispatcher
+version: 0.0.1-SNAPSHOT

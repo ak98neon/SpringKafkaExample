@@ -1,0 +1,41 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: kafka-dispatcher
+  profiles:
+    active: default
+  main:
+    banner-mode: "off"
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      client-id: kafka-dispatcherClientID
+      group-id: kafka-dispatcherGroupID
+      max-partition-fetch-bytes: 500000000
+      max-poll-interval-ms: 172800000
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+    producer:
+      compression-type: gzip
+      max-request-size: 50000000
+      key-serializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-serializer: org.apache.kafka.common.serialization.StringDeserializer
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, prometheus
+      base_path:
+      path_mapping:
+        prometheus: metrics
+
+  endpoint:
+    health:
+      show-details: 'ALWAYS'
+
+dispatcher:
+  routing-topics: routing-input-dispatcher
